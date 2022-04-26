@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	main {
+		@apply max-w-full min-h-screen max-h-screen;
+	}
+	section {
+		@apply w-full min-h-screen max-h-screen box-border flex flex-col items-center justify-center;
+	}
+	form {
+		@apply w-full space-y-2;
+	}
+	input {
+		@apply w-full px-2 py-1.5 border-2 border-gray-100 rounded-md;
+	}
+	button {
+		@apply px-2 py-1.5 font-bold rounded-md;
+	}
+	h1 {
+		@apply text-3xl font-extrabold;
+	}
+	h2 {
+		@apply text-2xl font-bold;
+	}
+	h3 {
+		@apply text-xl font-bold;
+	}
+	h4 {
+		@apply text-lg font-semibold;
+	}
+	h5 {
+		@apply text-base font-semibold;
+	}
+}
+
+@layer components {
+	.auth-panel,
+	.dashboard-panel {
+		@apply lg:w-1/3 md:w-1/2 sm:w-7/12 w-10/12 shadow-md rounded-md flex flex-col items-center justify-center p-4 space-y-2;
+	}
+	.email-signin-button,
+	.email-signup-button,
+	.signout-button {
+		@apply w-full text-white bg-blue-300 hover:bg-blue-400;
+	}
+	.google-signin-button {
+		@apply flex-1 text-white bg-gray-100 hover:bg-gray-200 rounded-full p-1;
+	}
+	.form-error-input {
+		@apply border-2 border-red-500 outline-red-500;
+	}
+	.form-error-text {
+		@apply font-semibold text-sm text-red-500;
+	}
+	.form-label {
+		@apply font-semibold text-sm;
+	}
+	.user-panel {
+		@apply w-1/3 shadow-md rounded-md flex flex-col items-center justify-center p-4 space-y-2;
+	}
+}
+
