@@ -7,7 +7,6 @@ import { FcGoogle } from "react-icons/fc"
 import useAuthContext from "../context/AuthContext"
 import SignInForm from "../components/SignInForm"
 import SignUpForm from "../components/SignUpForm"
-import Image from "next/image"
 
 const AuthPage = () => {
 	const { user, loading, googleSignIn } = useAuthContext()
@@ -25,11 +24,10 @@ const AuthPage = () => {
 	return (
 		<main>
 			<Head>
-				<title>Next Firebase Template</title>
+				<title>Secure Todo List</title>
 			</Head>
-			<section className="space-y-2">
-				<Image alt="nextjs" src="/vercel.svg" width={200} height={100} priority="high" />
-				<h1>Next Firebase Template</h1>
+			<section>
+				<h1>Secure Todo List App</h1>
 				<div className="auth-panel">
 					{toggleForm === "signIn" ? (
 						<div className="w-full">

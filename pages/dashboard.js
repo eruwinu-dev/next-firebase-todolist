@@ -1,9 +1,14 @@
 import { useEffect } from "react"
 import Head from "next/head"
 import { useRouter } from "next/router"
-import Image from "next/image"
+
+import { TodoProvider } from "../context/TodoContext"
 
 import useAuthContext from "../context/AuthContext"
+import Link from "next/link"
+
+import AddTodoForm from "../components/AddTodoForm"
+import TodosList from "../components/TodosList"
 
 const Dashboard = () => {
 	const { user, loading, accountSignOut } = useAuthContext()
@@ -18,21 +23,33 @@ const Dashboard = () => {
 	if (loading || !user) return <div></div>
 
 	return (
-		<main>
-			<Head>
-				<title>Dashboard | Next Firebase Template</title>
-			</Head>
-			<section className="space-y-2">
-				<Image alt="nextjs" src="/vercel.svg" width={200} height={100} priority="high" />
-				<h1>Next Firebase Template</h1>
-				<div className="dashboard-panel">
-					{user.email}
-					<button type="button" className="signout-button" onClick={() => accountSignOut()}>
-						Sign out
-					</button>
-				</div>
-			</section>
-		</main>
+		<TodoProvider>
+			<main>
+				<Head>
+					<title>Dashboard | Secure Todo List</title>
+				</Head>
+				<header className="bg-slate-50 border-b-2">
+					<Link href="">
+						<button type="button">Secure Todo List</button>
+					</Link>
+					<div className="header-side">
+						<span className="font-semibold">{user.email}</span>
+						<button type="button" className="signout-button" onClick={() => accountSignOut()}>
+							Sign out
+						</button>
+					</div>
+				</header>
+				<section>
+					<h1>Your Todos</h1>
+					<div className="dashboard-panel">
+						<AddTodoForm />
+					</div>
+					<div className="dashboard-panel">
+						<TodosList />
+					</div>
+				</section>
+			</main>
+		</TodoProvider>
 	)
 }
 
