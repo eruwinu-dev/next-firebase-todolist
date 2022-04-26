@@ -18,7 +18,7 @@ const Dashboard = () => {
 		if (!user) {
 			router.push("/")
 		}
-	}, [user])
+	}, [user, router])
 
 	if (loading || !user) return <div></div>
 
@@ -28,7 +28,7 @@ const Dashboard = () => {
 				<Head>
 					<title>Dashboard | Secure Todo List</title>
 				</Head>
-				<header className="bg-slate-50 border-b-2">
+				<header className="text-neutral-50 border-b-2">
 					<Link href="">
 						<button type="button">Secure Todo List</button>
 					</Link>
@@ -40,11 +40,11 @@ const Dashboard = () => {
 					</div>
 				</header>
 				<section>
-					<h1>Your Todos</h1>
+					<h1 className="text-neutral-50">Your Todos</h1>
 					<div className="dashboard-panel">
 						<AddTodoForm />
 					</div>
-					<div className="dashboard-panel">
+					<div className="dashboard-panel bg-transparent px-0">
 						<TodosList />
 					</div>
 				</section>

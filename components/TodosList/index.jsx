@@ -17,7 +17,7 @@ const TodosList = () => {
 			{todos.docs.length ? (
 				todos.docs.map((todo, index) => <TodoItem key={index} todo={{ ...todo.data(), id: todo.id }} />)
 			) : (
-				<h4>No todos.</h4>
+				<h4 className="text-neutral-50">No todos.</h4>
 			)}
 		</div>
 	)

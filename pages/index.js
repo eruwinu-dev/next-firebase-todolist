@@ -17,7 +17,7 @@ const AuthPage = () => {
 		if (user) {
 			router.push("dashboard")
 		}
-	}, [user])
+	}, [user, router])
 
 	if (loading || user) return <div></div>
 
@@ -27,13 +27,13 @@ const AuthPage = () => {
 				<title>Secure Todo List</title>
 			</Head>
 			<section>
-				<h1>Secure Todo List App</h1>
+				<h1 className="text-neutral-50">Secure Todo List App</h1>
 				<div className="auth-panel">
 					{toggleForm === "signIn" ? (
 						<div className="w-full">
 							<SignInForm />
 							<div className="w-full space-y-2">
-								<span className="text-gray-800">Don't have an account?</span>
+								<span className="text-gray-800">New here?</span>
 								<button
 									type="button"
 									className="text-blue-500 hover:text-blue-600 font-semibold"
